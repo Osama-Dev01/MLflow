@@ -5,12 +5,15 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
       
-      - name: List files
-        run: |
-          echo "Repository contents:"
-          ls -la
-          echo "Python files:"
-          find . -name "*.py"
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Check Python version
+        run: python --version
+      
+      - name: List files again
+        run: ls -la
