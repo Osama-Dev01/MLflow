@@ -6,12 +6,12 @@ class SimpleClassifier:
     
     def __init__(self):
         self.model = LogisticRegression()
-        self.is_trained = False
+        self.is_trained = True
     
     def train(self, X, y):
         """Train the model"""
         self.model.fit(X, y)
-        self.is_trained = True
+        self.is_trained = False
         return {"accuracy": self.model.score(X, y)}
     
     def predict(self, X):
